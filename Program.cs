@@ -17,24 +17,19 @@ namespace Meteors
             while (!Lost)
             {
 
+                Calculator.Update(pew);
+
                 pew.Add(new Pew(turns));
 
-                for (int k = 0; k < pew.Count; k++)
-                {
-
-                    pew[k].Update();
-
-                }
-
-                SetField();
-
-                DrawField();
-
-                Console.ReadLine();
-
-
-
                 turns++;
+
+                Calculator.SetField(field, turns, pew);
+
+                Printer.DrawField(field);
+
+
+
+
 
                 if (turns >= 20)
                 {
@@ -50,60 +45,7 @@ namespace Meteors
 
 
         }
-
-        public static void SetField()
-        {
-            Console.Clear();
-
-            for (int i = 0; i < field.GetLength(0); i++)
-            {
-
-                for (int j = 0; j < field.GetLength(1); j++)
-                {
-
-                    field[i, j] = " ";
-
-
-                }
-
-
-            }
-
-
-            for (int l = 0; l < turns; l++)
-            {
-
-                field[pew[l].Xpos, pew[l].Ypos] = "#";
-
-
-            }
-
-
-        }
-
-        public static void DrawField()
-        {
-
-            for (int i = 0; i < field.GetLength(0); i++)
-            {
-
-                for (int j = 0; j < field.GetLength(1); j++)
-                {
-
-                    Console.Write(field[j, i]);
-
-                }
-
-                Console.WriteLine("");
-            }
-
-
-
-
-        }
-
-
-
+        
 
 
 

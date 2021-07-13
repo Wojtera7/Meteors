@@ -17,7 +17,7 @@ namespace Meteors
         public Pew(int id)
         {
             ID = id;
-            Xpos = rand.Next(9);
+            Xpos = rand.Next(10);
             Ypos = 0;
 
 
